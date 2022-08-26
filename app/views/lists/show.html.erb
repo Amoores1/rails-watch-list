@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#"><%= @list.name %></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#"><%= link_to "Delete this list", list_path(@list),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+%></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"><%= link_to "Create a new bookmark", new_list_bookmark_path(params[:id]) %></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"><%= link_to "Back to all lists", lists_path %></a>
+      </li>
+    </ul>
+  </div>
+<h5 class="nav-flex-right">Bookmarks</h5>
+</nav>
+
+
+
+<% @bookmarks.each do |bookmark| %>
+<div class="jumbotron jumbotron-fluid" style="background-image: url(https://source.unsplash.com/random)">
+  <div class="container">
+    <h1 class="display-4"><%= bookmark.movie.title %></h1>
+    <p class="lead"><%= bookmark.comment %></p>
+    <p><%= link_to "Delete this bookmark", bookmark_path(bookmark),
+      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+    %></p>
+  </div>
+</div>
+<% end %>

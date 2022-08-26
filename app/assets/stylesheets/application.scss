@@ -10,3 +10,27 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+
+.jumbotron {
+  background-size: cover;
+  height:60vh;
+  color: white;
+  align-items: center;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.nav-flex-right {
+  flex-direction: end;
+}
+
+.nav-item {
+  margin: 5px;
+}
+
+a {
+  text-decoration: none;
+}
